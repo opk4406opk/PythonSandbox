@@ -23,18 +23,22 @@ def TestFuntion(userName):
     
 TestFuntion("opk4406")
 
-myBattleTag = "2LPCCQOUO"
+myBralwStarsTag = "2LPCCQOUO"
 userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0"
-apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImEzZmIxMGRhLTZmMzgtNGE0Yy1iZDJiLWIzYzI2NTAyYzVkNyIsImlhdCI6MTYwMjMxNzI5MSwic3ViIjoiZGV2ZWxvcGVyL2JlNTE3MjQ2LWNmYzgtZDQ5NC1hOTkxLWNjNGYzOWVhMWNmYSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTgyLjIyNC43Mi4yMTkiXSwidHlwZSI6ImNsaWVudCJ9XX0.pVNBskTcukhL8wGfvQ00kGBPCCBkse8hFctClFIsNaqWVh8nskJGm47UcWURa56Ti7UIISHEOwbcrwoF8QnkYA"
-url = "https://api.brawlstars.com/v1/players/{0}/battlelog".format(myBattleTag)
-#url = "https://api.brawlstars.com/v1/brawlers" # 브롤러 정보.
+myHomeApiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImEzZmIxMGRhLTZmMzgtNGE0Yy1iZDJiLWIzYzI2NTAyYzVkNyIsImlhdCI6MTYwMjMxNzI5MSwic3ViIjoiZGV2ZWxvcGVyL2JlNTE3MjQ2LWNmYzgtZDQ5NC1hOTkxLWNjNGYzOWVhMWNmYSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTgyLjIyNC43Mi4yMTkiXSwidHlwZSI6ImNsaWVudCJ9XX0.pVNBskTcukhL8wGfvQ00kGBPCCBkse8hFctClFIsNaqWVh8nskJGm47UcWURa56Ti7UIISHEOwbcrwoF8QnkYA"
+inCompanyKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjMxZTIzYzZiLTkwNGYtNGMzMy1hNWQzLWM5ZTA5M2QzOTJlMSIsImlhdCI6MTYwMjY0OTQ0MCwic3ViIjoiZGV2ZWxvcGVyL2JlNTE3MjQ2LWNmYzgtZDQ5NC1hOTkxLWNjNGYzOWVhMWNmYSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTA2LjI0Ny4yMjUuODIiXSwidHlwZSI6ImNsaWVudCJ9XX0.zDoyAKHTIGTzFsdyG_nPDh6UxzU5zNvPMQrLL3NckgMGgYqF9u_MPkanv_jh8uVpgpmdzrObMl2mLc2XDO-tyw"
+
+battleLogURL = "https://api.brawlstars.com/v1/players/{0}/battlelog".format(myBralwStarsTag)
+playerInfoURL = "https://api.brawlstars.com/v1/players/{0}".format(myBralwStarsTag)
+bralwersURL = "https://api.brawlstars.com/v1/brawlers" # 브롤러 정보.
+
 headers = {
 'Content-Type': 'application/json; charset=utf-8',
-'Accept':'application/json',
+'Accept': 'application/json',
 'User-Agent': '{0}'.format(userAgent),
-'Authorization':'Bearer {0}'.format(apiKey)
+'Authorization': 'Bearer {}'.format(inCompanyKey)
 }
-response = requests.get(url, headers)
+response = requests.get(playerInfoURL, headers)
 print(response.text)
 print(response.raise_for_status)
 print(response.json)
