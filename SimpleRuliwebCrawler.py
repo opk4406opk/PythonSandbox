@@ -21,13 +21,13 @@ class URLImgDownLoader(threading.Thread):
 
 
 # json 파일로부터 url 추출.
-print "extract from url list file(JSON)"
+print("extract from url list file(JSON)")
 f = open("test.json", "r")
 url_list = json.load(f)
 f.close()
-print "web pages extract success."
+print("web pages extract success.")
 # 각 웹페이지 url 로 부터 이미지들을 추출한다.
-print "image download start."
+print("image download start.")
 for url in url_list:
     htmlData = urllib.urlopen(url)
     htmlParser = BeautifulSoup(htmlData, 'html.parser')
@@ -42,4 +42,4 @@ for url in url_list:
         print
     htmlData.close()
 
-print "Finish all jobs."
+print("Finish all jobs.")
